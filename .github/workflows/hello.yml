@@ -1,17 +1,15 @@
 name: Sand Box For CI/CD # ワークフロー名
 on: push # イベント
-env:
-  EXAMPLE: Defined by workflow
 jobs: # ジョブ
   prints: # ジョブID
     name: This text is jobs name
     runs-on: ubuntu-latest # ランナー　実行環境
+    permissions:
+      contents: read
     steps: # ステップ
-      - name: This text is steps name1
-        run: echo "${EXAMPLE}"
+      - name: Check out
+        uses: actions/checkout@v4
       - name: This text is steps name2
+        run: gh repo list
         env:
-          EXAMPLE: Defined by step level
-          ACTOR: ${{ github.actor }}
-          USERNAME: ${{vars.USERNAME}}
-        run: echo ${{env.EXAMPLE}} && echo "${ACTOR}" && echo "USERNAME is ${USERNAME}"
+          TOKEN: ${{secrets.GITHUB_TOKEN}}

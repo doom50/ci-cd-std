@@ -10,6 +10,6 @@ jobs: # ジョブ
       - name: Check out
         uses: actions/checkout@v4
       - name: display repo
-        run: gh repo list
+        run: gh repo list >&1
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}

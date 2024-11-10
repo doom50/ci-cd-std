@@ -9,7 +9,7 @@ jobs: # ジョブ
     steps: # ステップ
       - name: Check out
         uses: actions/checkout@v4
-      - name: This text is steps name2
+      - name: display repo
         run: gh repo list
         env:
-          TOKEN: ${{secrets.GITHUB_TOKEN}}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}

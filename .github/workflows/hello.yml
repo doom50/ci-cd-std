@@ -7,8 +7,9 @@ jobs: # ジョブ
     name: This text is jobs name
     runs-on: ubuntu-latest # ランナー　実行環境
     steps: # ステップ
-      - name: This text is steps name
-      - run: echo "${EXAMPLE}"
+      - name: This text is steps name1
+        run: echo "${EXAMPLE}"
+      - name: This text is steps name2
       - env:
           EXAMPLE: Defined by step level
           ACTOR: ${{ github.actor }}

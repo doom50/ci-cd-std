@@ -1,11 +1,13 @@
-name: Override env val # ワークフロー名
+name: Sand Box For CI/CD # ワークフロー名
 on: push # イベント
 env:
   EXAMPLE: Defined by workflow
 jobs: # ジョブ
   prints: # ジョブID
+    name: This text is jobs name
     runs-on: ubuntu-latest # ランナー　実行環境
     steps: # ステップ
+      - name: This text is steps name
       - run: echo "${EXAMPLE}"
       - env:
           EXAMPLE: Defined by step level

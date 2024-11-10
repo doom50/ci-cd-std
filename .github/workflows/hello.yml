@@ -10,7 +10,7 @@ jobs: # ジョブ
       - name: This text is steps name1
         run: echo "${EXAMPLE}"
       - name: This text is steps name2
-      - env:
+        env:
           EXAMPLE: Defined by step level
           ACTOR: ${{ github.actor }}
           USERNAME: ${{vars.USERNAME}}

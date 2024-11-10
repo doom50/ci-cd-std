@@ -1,8 +1,12 @@
-name: Hello # ワークフロー名
+name: Override env val # ワークフロー名
 on: push # イベント
+env:
+  EXAMPLE: Defined by workflow
 jobs: # ジョブ
-  hello: # ジョブID
+  prints: # ジョブID
     runs-on: ubuntu-latest # ランナー　実行環境
     steps: # ステップ
-      - run: echo "Hello"
-      - uses: actions/checkout@v4
+      - run: echo "${EXAMPLE}"
+      - env:
+          EXAMPLE: Defined by step level
+        run: echo ${{env.EXAMPLE}}

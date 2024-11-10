@@ -9,4 +9,4 @@ jobs: # ジョブ
       - run: echo "${EXAMPLE}"
       - env:
           EXAMPLE: Defined by step level
-        run: echo ${{env.EXAMPLE}} | echo ${{env.GITHUB_ACTION}} | echo ${{env.GITHUB_ACTION_PATH}} | echo ${{env.GITHUB_ACTION_REPOSITORY}}
+        run: echo ${{env.EXAMPLE}} | echo $"{GITHUB_ACTION}" | echo "${env.GITHUB_ACTION_PATH}" | echo "${env.GITHUB_ACTION_REPOSITORY}"

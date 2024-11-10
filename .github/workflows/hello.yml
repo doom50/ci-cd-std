@@ -10,4 +10,5 @@ jobs: # ジョブ
       - env:
           EXAMPLE: Defined by step level
           ACTOR: ${{ github.actor }}
-        run: echo ${{env.EXAMPLE}} && echo "${ACTOR}"
+          USERNAME: ${{vars.USERNAME}}
+        run: echo ${{env.EXAMPLE}} && echo "${ACTOR}" && echo "USERNAME is ${USERNAME}"

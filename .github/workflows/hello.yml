@@ -1,15 +1,11 @@
-name: Sand Box For CI/CD # ワークフロー名
+name: Debug Log # ワークフロー名
 on: push # イベント
 jobs: # ジョブ
-  prints: # ジョブID
+  logs: # ジョブID
     name: This text is jobs name
     runs-on: ubuntu-latest # ランナー　実行環境
-    permissions:
-      contents: read
     steps: # ステップ
       - name: Check out
         uses: actions/checkout@v4
       - name: display repo
-        run: gh repo list >&1
-        env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        run: echo "::debug::デバッグログ有効化"

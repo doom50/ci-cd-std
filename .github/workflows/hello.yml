@@ -2,7 +2,6 @@ name: Sequential Jobs # ワークフロー名
 on: push # イベント
 jobs: # ジョブ
   first: # ジョブID
-    name: This text is jobs name
     runs-on: ubuntu-latest # ランナー　実行環境
     steps: # ステップ
       - run: sleep 10 && echo "First job"
@@ -13,6 +12,6 @@ jobs: # ジョブ
       - run: sleep 10 && echo "#2 job"
   third: # ジョブID
     runs-on: ubuntu-latest # ランナー　実行環境
-    needs: [second]
+    needs: [first]
     steps: # ステップ
       - run: sleep 10 && echo "#3 job"

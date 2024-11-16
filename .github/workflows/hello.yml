@@ -1,4 +1,4 @@
-name: Parallel Jobs # ワークフロー名
+name: Sequential Jobs # ワークフロー名
 on: push # イベント
 jobs: # ジョブ
   first: # ジョブID
@@ -8,9 +8,11 @@ jobs: # ジョブ
       - run: sleep 10 && echo "First job"
   second: # ジョブID
     runs-on: ubuntu-latest # ランナー　実行環境
+    needs: [first]
     steps: # ステップ
       - run: sleep 10 && echo "#2 job"
   third: # ジョブID
     runs-on: ubuntu-latest # ランナー　実行環境
+    needs: [second]
     steps: # ステップ
       - run: sleep 10 && echo "#3 job"

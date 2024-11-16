@@ -1,14 +1,16 @@
-name: Annotation # ワークフロー名
+name: Parallel Jobs # ワークフロー名
 on: push # イベント
 jobs: # ジョブ
-  log: # ジョブID
+  first: # ジョブID
     name: This text is jobs name
     runs-on: ubuntu-latest # ランナー　実行環境
-    env:
-      PASSWORD: SuperSecret
     steps: # ステップ
-      - name: Check out
-        uses: actions/checkout@v4
-      - run: echo "::error::エラー発生　日本語がつかえる"
-      - run: echo "::warning::This is an error"
-      - run: echo "::notice::This is an error"
+      - run: sleep 10 && echo "First job"
+  second: # ジョブID
+    runs-on: ubuntu-latest # ランナー　実行環境
+    steps: # ステップ
+      - run: sleep 10 && echo "#2 job"
+  third: # ジョブID
+    runs-on: ubuntu-latest # ランナー　実行環境
+    steps: # ステップ
+      - run: sleep 10 && echo "#3 job"

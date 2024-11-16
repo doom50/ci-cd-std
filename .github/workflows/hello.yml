@@ -1,13 +1,14 @@
-name: Log group # ワークフロー名
+name: Add mask # ワークフロー名
 on: push # イベント
 jobs: # ジョブ
   log: # ジョブID
     name: This text is jobs name
     runs-on: ubuntu-latest # ランナー　実行環境
+    env:
+      PASSWORD: SuperSecret
     steps: # ステップ
       - name: Check out
         uses: actions/checkout@v4
       - run: |
-          echo "::group::This is Log group"
-          printenv
-          echo "::endgroup::"
+          echo "::add-mask::${PASSWORD}"
+          echo "${PASSWORD}"

@@ -1,13 +1,13 @@
-name: Bash tracing # ワークフロー名
+name: Log group # ワークフロー名
 on: push # イベント
 jobs: # ジョブ
-  logs: # ジョブID
+  log: # ジョブID
     name: This text is jobs name
     runs-on: ubuntu-latest # ランナー　実行環境
     steps: # ステップ
       - name: Check out
         uses: actions/checkout@v4
       - run: |
-          set -x
-          date
-          hostname
+          echo "::group::This is Log group"
+          printenv
+          echo "::endgroup::"

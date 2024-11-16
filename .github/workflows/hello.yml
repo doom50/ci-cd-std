@@ -9,6 +9,6 @@ jobs: # ジョブ
     steps: # ステップ
       - name: Check out
         uses: actions/checkout@v4
-      - run: echo "::error::This is an error"
+      - run: echo "::error::エラー発生　日本語がつかえる"
       - run: echo "::warning::This is an error"
       - run: echo "::notice::This is an error"
